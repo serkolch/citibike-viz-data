@@ -3,7 +3,7 @@ var glob = require('glob')
 
 glob("data/*.json", function(er,files){
   var dataFiles = files
-  console.log
+  console.log(dataFiles)
   // var dataFiles = ['./data/02:00PM.json','./data/02:15PM.json','./data/02:30PM.json','./data/02:45PM.json']
 
   var requiredData = dataFiles.map(function(file){
