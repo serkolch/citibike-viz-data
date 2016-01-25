@@ -23,10 +23,10 @@ glob("data/*.json", function(er,files){
     var structure = {};
     requiredData[0].forEach(function(station){
       structure[station.id] = {
-        latitude: station.latitude,
-        longitude: station.longitude,
+        latitude: String(station.latitude),
+        longitude: String(station.longitude),
         stationName: station.stationName,
-        capacity: station.totalDocks,
+        capacity: String(station.totalDocks),
         averageBikes:{}
       }
     })
@@ -35,7 +35,7 @@ glob("data/*.json", function(er,files){
       var time = dataFiles[index].split(/[\/.]+/)[1]
       var time = time.replace(":","-")
       file.forEach(function(station){
-        structure[station.id].averageBikes[time] = station.availableBikes
+        structure[station.id].averageBikes[time] = String(station.availableBikes)
       })
     }
     requiredData.forEach(repeat)
